@@ -4,6 +4,28 @@ import { Link } from "react-router-dom";
 
 const companies = [
   {
+    name: "RankReaction",
+    description: "A competitive web-game designed to gauge and develop your quickness and reaction times. Test your limits.",
+    icon: Gamepad2,
+    color: "text-cyan-500",
+    bg: "bg-cyan-500/10",
+    border: "border-cyan-500/20",
+    link: "https://rankreaction.com",
+    logoUrl: "/RankReaction.png",
+    actionText: "Visit Website"
+  },
+  {
+    name: "TypingPacer",
+    description: "The ultimate platform to practice, track, and improve your typing speed and accuracy. Pace yourself to perfection.",
+    icon: Keyboard,
+    color: "text-orange-500",
+    bg: "bg-orange-500/10",
+    border: "border-orange-500/20",
+    link: "https://typingpacer.com",
+    logoUrl: "/TypingPacer.png",
+    actionText: "Visit Website"
+  },
+  {
     name: "Argolix",
     description: "An app development broker bridging the gap between entrepreneurs and developers, ensuring fair compensation and top-tier results.",
     icon: Code2,
@@ -11,27 +33,8 @@ const companies = [
     bg: "bg-purple-500/10",
     border: "border-purple-500/20",
     link: "#",
-    logoUrl: "/Argolix.png"
-  },
-  {
-    name: "RankReaction.com",
-    description: "A competitive web-game designed to gauge and develop your quickness and reaction times. Test your limits.",
-    icon: Gamepad2,
-    color: "text-cyan-500",
-    bg: "bg-cyan-500/10",
-    border: "border-cyan-500/20",
-    link: "#",
-    logoUrl: "/RankReaction.png"
-  },
-  {
-    name: "TypingPacer.com",
-    description: "The ultimate platform to practice, track, and improve your typing speed and accuracy. Pace yourself to perfection.",
-    icon: Keyboard,
-    color: "text-orange-500",
-    bg: "bg-orange-500/10",
-    border: "border-orange-500/20",
-    link: "#",
-    logoUrl: "/TypingPacer.png"
+    logoUrl: "/Argolix.png",
+    actionText: "Under Development"
   }
 ];
 
@@ -112,37 +115,44 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {companies.map((company, index) => (
-              <motion.div
-                key={company.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className={`group relative p-8 rounded-3xl bg-black border ${company.border} hover:border-[#ccff00]/50 transition-colors overflow-hidden`}
-              >
-                <div className={`absolute top-0 right-0 w-64 h-64 ${company.bg} rounded-full blur-3xl -mr-32 -mt-32 transition-transform group-hover:scale-150`} />
-                
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl ${company.bg} border ${company.border} flex items-center justify-center mb-8 overflow-hidden`}>
-                    {/* Replace src with your uploaded logo */}
-                    <img src={company.logoUrl} alt={`${company.name} logo`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-                  </div>
+            {companies.map((company, index) => {
+              const isExternal = company.link !== "#";
+              const Wrapper = isExternal ? motion.a : motion.div;
+              const wrapperProps = isExternal ? { href: company.link, target: "_blank", rel: "noopener noreferrer" } : {};
+
+              return (
+                <Wrapper
+                  key={company.name}
+                  {...wrapperProps}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                  className={`group relative p-8 rounded-3xl bg-black border ${company.border} hover:border-[#ccff00]/50 transition-colors overflow-hidden ${isExternal ? 'cursor-pointer' : ''}`}
+                >
+                  <div className={`absolute top-0 right-0 w-64 h-64 ${company.bg} rounded-full blur-3xl -mr-32 -mt-32 transition-transform group-hover:scale-150`} />
                   
-                  <h3 className="text-2xl font-bold mb-4">{company.name}</h3>
-                  <p className="text-zinc-400 mb-8 leading-relaxed">
-                    {company.description}
-                  </p>
-                  
-                  <div className="mt-auto pt-8 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-sm font-medium text-zinc-500 group-hover:text-[#ccff00] transition-colors">
-                      Explore Project
-                    </span>
-                    <ArrowRight className="w-5 h-5 text-zinc-500 group-hover:text-[#ccff00] transition-colors group-hover:translate-x-1 transform duration-300" />
+                  <div className="relative z-10">
+                    <div className={`w-16 h-16 rounded-2xl ${company.bg} border ${company.border} flex items-center justify-center mb-8 overflow-hidden`}>
+                      {/* Replace src with your uploaded logo */}
+                      <img src={company.logoUrl} alt={`${company.name} logo`} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                    </div>
+                    
+                    <h3 className="text-2xl font-bold mb-4">{company.name}</h3>
+                    <p className="text-zinc-400 mb-8 leading-relaxed">
+                      {company.description}
+                    </p>
+                    
+                    <div className="mt-auto pt-8 border-t border-white/10 flex items-center justify-between">
+                      <span className="text-sm font-medium text-zinc-500 group-hover:text-[#ccff00] transition-colors">
+                        {company.actionText || (isExternal ? "Visit Website" : "Explore Project")}
+                      </span>
+                      <ArrowRight className="w-5 h-5 text-zinc-500 group-hover:text-[#ccff00] transition-colors group-hover:translate-x-1 transform duration-300" />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </Wrapper>
+              );
+            })}
           </div>
         </div>
       </section>
