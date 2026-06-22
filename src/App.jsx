@@ -21,6 +21,84 @@ const ScrollToTop = () => {
   return null;
 };
 
+// Route-based SEO Metadata Manager
+const MetadataManager = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    let title = "HypeFuze | Elite Technology Holding Company & Software Studio";
+    let description = "HypeFuze is an elite technology holding company developing custom high-performance web applications, reaction latency test widgets, and run split pace calculators.";
+    
+    switch (pathname) {
+      case '/':
+        title = "HypeFuze | Elite Technology Holding Company & Software Studio";
+        description = "HypeFuze is an elite technology holding company developing custom high-performance web applications, reaction latency test widgets, and run split pace calculators.";
+        break;
+      case '/about':
+        title = "About Us | The HypeFuze Vision & Technological Sovereignty";
+        description = "Learn about HypeFuze's mission to democratize sports science and athletic pacing strategy with elite, self-directed analytical modeling software.";
+        break;
+      case '/contact':
+        title = "Contact HypeFuze | Connect with Our Software Studio";
+        description = "Get in touch with the HypeFuze studio team for product inquiries, custom software development, or strategic collaborations.";
+        break;
+      case '/privacy':
+        title = "Privacy Policy | HypeFuze";
+        description = "Read the HypeFuze Privacy Policy to understand how we collect, protect, and handle data across our applications and platforms.";
+        break;
+      case '/terms':
+        title = "Terms of Service | HypeFuze";
+        description = "Review the Terms of Service for HypeFuze.com, our tracking tools, and reaction speed platforms.";
+        break;
+      default:
+        break;
+    }
+
+    document.title = title;
+    
+    // Update description meta tag
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    }
+    
+    // Update OpenGraph description
+    const ogDescription = document.querySelector('meta[property="og:description"]');
+    if (ogDescription) {
+      ogDescription.setAttribute('content', description);
+    }
+
+    // Update OpenGraph title
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) {
+      ogTitle.setAttribute('content', title);
+    }
+
+    // Update Twitter title
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', title);
+    }
+
+    // Update Twitter description
+    const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+    if (twitterDescription) {
+      twitterDescription.setAttribute('content', description);
+    }
+
+    // Update canonical link
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', `https://hypefuze.com${pathname === '/' ? '' : pathname}`);
+  }, [pathname]);
+
+  return null;
+};
+
 // Global click sound handler wrapper
 const GlobalSoundProvider = ({ children }) => {
   const location = useLocation();
@@ -131,6 +209,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <MetadataManager />
       <GlobalSoundProvider>
         <div className="min-h-screen bg-black text-white flex flex-col font-sans selection:bg-[#ccff00] selection:text-black">
           <Navbar />
