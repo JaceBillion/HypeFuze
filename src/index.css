@@ -1,0 +1,139 @@
+/* Import Premium Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Sora:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Sora', var(--font-sans);
+    --font-mono: 'Space Grotesk', ui-monospace, monospace;
+    
+    /* Neon Green / Emerald Theme Palette */
+    --color-neon-green: #ccff00;
+    --color-neon-green-glow: rgba(204, 255, 0, 0.15);
+    
+    color-scheme: dark;
+    background-color: #000000;
+    color: #e4e4e7; /* zinc-300 */
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #000000;
+    overflow-x: hidden;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* High-end custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #09090b; /* zinc-950 */
+    border-left: 1px solid rgba(255, 255, 255, 0.03);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-neon-green);
+    box-shadow: 0 0 10px var(--color-neon-green-glow);
+  }
+}
+
+/* Register Custom Properties for smooth masking & spotlight animations */
+@property --glow-size {
+  syntax: "<length-percentage>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --glow-opacity {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+/* Custom Interactive Animations */
+.reveal-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.reveal-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle 350px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(204, 255, 0, 0.08) 0%,
+    rgba(16, 185, 129, 0.03) 40%,
+    transparent 80%
+  );
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 0.4s ease-out;
+}
+
+.reveal-border {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    circle 220px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(204, 255, 0, 0.35) 0%,
+    rgba(16, 185, 129, 0.15) 50%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: var(--glow-opacity, 0);
+  transition: opacity 0.4s ease-out;
+}
+
+.reveal-card:hover {
+  --glow-opacity: 1;
+}
+
+/* Custom SVG Noise Overlay */
+.bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.045'/%3E%3C/svg%3E");
+}
+
+/* Grid background line details */
+.bg-grid-lines {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Glowing text classes */
+.text-neon-glow {
+  text-shadow: 0 0 15px rgba(204, 255, 0, 0.4);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-glow,
+  .reveal-border {
+    transition: none !important;
+  }
+}
