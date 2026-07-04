@@ -296,6 +296,55 @@ export const Home = () => {
               </div>
             </CursorGlowCard>
 
+            {/* LORDAR-1009 CARD */}
+            <CursorGlowCard 
+              className="lg:col-span-2 md:col-span-2 col-span-1 min-h-[460px] sm:min-h-[360px]"
+              contentClass="flex flex-col sm:flex-row gap-8 justify-between p-8"
+              glowColor="rgba(255, 159, 67, 0.08)"
+              borderColor="rgba(255, 159, 67, 0.3)"
+              borderClass="border-amber-500/20"
+            >
+              <div className="flex-[1.3] flex flex-col justify-between h-full">
+                <div>
+                  <div className="w-14 h-14 rounded-2xl border border-amber-500/20 bg-amber-500/10 flex items-center justify-center mb-8 overflow-hidden">
+                    <img src="/LordARIcon.png" alt="LordAR-1009 Logo" className="w-full h-full object-cover" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-black uppercase text-white mb-3 tracking-tight">LordAR-1009</h3>
+                  <p className="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed font-sans">
+                    The warmth of 1970s analog soul — the glide leads, the rubber-band funk bass, and the string-machine shimmer — reborn as a premium synthesizer instrument plugin for your studio. Works natively in AU, VST3, and Standalone.
+                  </p>
+                </div>
+                
+                <div className="pt-6 border-t border-white/5 flex items-center justify-between mt-8">
+                  <a 
+                    href="https://lordar1009.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={() => SoundManager.playClick()}
+                    className="text-xs uppercase font-extrabold tracking-wider text-zinc-400 group-hover:text-amber-400 flex items-center gap-1 transition-colors"
+                  >
+                    Visit Website
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Synthesizer Panel Mockup */}
+              <div className="relative z-10 flex-1 flex items-center justify-center -mt-4 sm:mt-0 overflow-hidden h-[260px] sm:h-full min-h-[220px]">
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.05, rotate: 1 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                  className="relative w-full h-full flex items-center justify-center"
+                >
+                  <img
+                    src="/LordARPanel.png"
+                    alt="LordAR-1009 Control Panel"
+                    className="max-h-[280px] sm:max-h-[300px] w-auto object-contain rounded-lg border border-[#4a3b2c] drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                  />
+                </motion.div>
+              </div>
+            </CursorGlowCard>
+
             {/* RANKREACTION CARD (PLAYABLE WIDGET) */}
             <CursorGlowCard 
               className="lg:col-span-1 md:col-span-2 col-span-1 min-h-[360px]"
