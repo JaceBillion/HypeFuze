@@ -27,16 +27,16 @@ const MetadataManager = () => {
 
   useEffect(() => {
     let title = "HypeFuze | Elite Technology Holding Company & Software Studio";
-    let description = "HypeFuze is an elite technology holding company developing custom high-performance web applications, reaction latency test widgets, and run split pace calculators.";
+    let description = "HypeFuze is an elite technology holding company developing custom high-performance web applications, AI creative ad labs, reaction latency test widgets, and run split pace calculators.";
     
     switch (pathname) {
       case '/':
         title = "HypeFuze | Elite Technology Holding Company & Software Studio";
-        description = "HypeFuze is an elite technology holding company developing custom high-performance web applications, reaction latency test widgets, and run split pace calculators.";
+        description = "HypeFuze is an elite technology holding company developing custom high-performance web applications, IceBerree AI ad labs, reaction latency test widgets, and run split pace calculators.";
         break;
       case '/about':
         title = "About Us | The HypeFuze Vision & Technological Sovereignty";
-        description = "Learn about HypeFuze's mission to democratize sports science and athletic pacing strategy with elite, self-directed analytical modeling software.";
+        description = "Learn about HypeFuze's mission to democratize AI ad creation, sports science, and athletic pacing strategy with elite, self-directed software.";
         break;
       case '/contact':
         title = "Contact HypeFuze | Connect with Our Software Studio";

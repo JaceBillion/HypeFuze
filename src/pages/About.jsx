@@ -5,8 +5,10 @@ import { CursorGlowCard } from '../components/CursorGlowCard';
 
 export const About = () => {
   const appIcons = [
+    { name: 'IceBerree', img: '/IceBerree.png', desc: 'AI Ad Lab for scroll-stopping marketing.', color: 'border-sky-500/20 bg-sky-500/10' },
     { name: 'Elite400M', img: '/Elite400M.png', desc: 'Sprint training dashboard software.', color: 'border-amber-500/20 bg-amber-500/10' },
     { name: 'SplitStrategy', img: '/SplitStrategy.png', desc: 'Bespoke split pacing planner.', color: 'border-emerald-500/20 bg-emerald-500/10' },
+    { name: 'LordAR-1009', img: '/LordARIcon.png', desc: '1970s analog synthesizer plugin.', color: 'border-amber-500/20 bg-amber-500/10' },
     { name: 'RankReaction', img: '/RankReaction.png', desc: 'Latency reaction speed metric test.', color: 'border-cyan-500/20 bg-cyan-500/10' },
     { name: 'TypingPacer', img: '/TypingPacer.png', desc: 'WPM keyboard typing accuracy widget.', color: 'border-orange-500/20 bg-orange-500/10' }
   ];
@@ -46,7 +48,7 @@ export const About = () => {
             transition={{ delay: 0.3 }}
             className="text-base sm:text-lg text-zinc-400 font-light leading-relaxed"
           >
-            An elite technology holding group designing, developing, and publishing proprietary web-applications and high-fidelity systems.
+            An elite technology holding group designing, developing, and publishing proprietary web-applications, AI creative ad labs, and high-fidelity systems.
           </motion.p>
         </div>
 
@@ -65,10 +67,10 @@ export const About = () => {
               The <span className="text-[#ccff00]">HypeFuze</span> Vision
             </h2>
             <p className="text-sm sm:text-base font-light leading-relaxed text-zinc-400">
-              At <span className="text-[#ccff00] font-bold">HypeFuze</span>, we are driven by the absolute belief that elite digital tools should be accessible to everyone. Our journey is centered on launching high-performance computation platforms—such as <span className="text-white font-bold">Elite400M</span> and <span className="text-white font-bold">SplitStrategy</span>—that democratize sports science and athletic pacing strategy. We believe that true technological independence begins when athletes, coaches, and creators are equipped with the exact same caliber of analytical modeling tools previously reserved for elite organizations.
+              At <span className="text-[#ccff00] font-bold">HypeFuze</span>, we are driven by the absolute belief that elite digital tools should be accessible to everyone. Our journey is centered on launching high-performance computation platforms—such as <span className="text-white font-bold">IceBerree</span>, <span className="text-white font-bold">Elite400M</span>, and <span className="text-white font-bold">SplitStrategy</span>—that democratize AI marketing creation, sports science, and athletic pacing strategy. We believe that true technological independence begins when athletes, coaches, and creators are equipped with the exact same caliber of analytical modeling and creative tools previously reserved for elite organizations.
             </p>
             <p className="text-sm sm:text-base font-light leading-relaxed text-zinc-400">
-              By publishing tools like <span className="text-white font-bold">Elite400M</span> (to plan sprint pace distribution) and <span className="text-white font-bold">SplitStrategy</span> (to model race lap pacing), we empower individuals globally to self-direct their growth, bypass traditional gatekeepers, and claim technical sovereignty over their training and data. While we continue to design and coordinate matching networks like Argolix, our primary passion remains fueling the global movement of decentralized, independent creation.
+              By publishing tools like <span className="text-white font-bold">IceBerree</span> (the AI Ad Lab for scroll-stopping marketing), <span className="text-white font-bold">Elite400M</span> (to plan sprint pace distribution), and <span className="text-white font-bold">SplitStrategy</span> (to model race lap pacing), we empower individuals globally to self-direct their growth, bypass traditional gatekeepers, and claim technical sovereignty over their creation, training, and data. While we continue to design and coordinate matching networks like Argolix, our primary passion remains fueling the global movement of decentralized, independent creation.
             </p>
           </motion.div>
 

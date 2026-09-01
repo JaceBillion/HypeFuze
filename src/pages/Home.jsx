@@ -198,6 +198,60 @@ export const Home = () => {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
+            {/* ICEBERREE CARD */}
+            <CursorGlowCard 
+              className="lg:col-span-2 md:col-span-2 col-span-1 min-h-[460px]"
+              contentClass="flex flex-col sm:flex-row gap-8 justify-between p-8"
+              glowColor="rgba(14, 165, 233, 0.12)"
+              borderColor="rgba(14, 165, 233, 0.35)"
+              borderClass="border-sky-500/20"
+            >
+              <div className="flex-[1.3] flex flex-col justify-between h-full">
+                <div>
+                  <div className="w-14 h-14 rounded-2xl border border-sky-500/30 bg-sky-500/10 flex items-center justify-center mb-8 overflow-hidden">
+                    <img src="/IceBerree.png" alt="IceBerree Logo" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <h3 className="text-xl sm:text-2xl font-black uppercase text-white tracking-tight">IceBerree</h3>
+                    <span className="text-[9px] uppercase font-mono font-bold tracking-widest text-sky-400 bg-sky-500/10 border border-sky-500/20 px-2 py-0.5 rounded-full">
+                      AI Ad Lab
+                    </span>
+                  </div>
+                  <p className="text-zinc-400 text-xs sm:text-sm font-light leading-relaxed">
+                    The AI Ad Lab for scroll-stopping marketing. Generate high-converting video scripts, social media campaign angles, character studios, and performance ad copy in seconds.
+                  </p>
+                </div>
+                
+                <div className="pt-6 border-t border-white/5 flex items-center justify-between mt-8">
+                  <a 
+                    href="https://iceberree.com/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    onClick={() => SoundManager.playClick()}
+                    className="text-xs uppercase font-extrabold tracking-wider text-zinc-400 group-hover:text-sky-400 flex items-center gap-1 transition-colors"
+                  >
+                    Visit Website
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* IceBerree Brand Logo Visual */}
+              <div className="relative z-10 flex-1 flex items-center justify-center -mt-4 sm:mt-0 overflow-hidden h-[260px] sm:h-full min-h-[220px]">
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.05, rotate: 1 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                  className="relative w-full h-full flex items-center justify-center"
+                >
+                  <img
+                    src="/IceBerree.png"
+                    alt="IceBerree AI Ad Lab showcase"
+                    className="max-h-[260px] sm:max-h-[280px] w-auto object-contain rounded-2xl drop-shadow-[0_20px_40px_rgba(14,165,233,0.25)]"
+                  />
+                </motion.div>
+              </div>
+            </CursorGlowCard>
+
             {/* ELITE400M CARD */}
             <CursorGlowCard 
               className="lg:col-span-2 md:col-span-2 col-span-1 min-h-[460px]"
